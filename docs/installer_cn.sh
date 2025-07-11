@@ -207,6 +207,8 @@ install_docker() {
         if [ $? -ne "0" ]; then
             abort "Docker 引擎自动安装失败，请在执行此脚本之前手动安装它。"
         fi
+        mkdir -p /etc/docker
+        echo '{"registry-mirrors":["https://docker.1ms.run"]}' > /etc/docker/daemon.json
         systemctl enable docker && systemctl daemon-reload && systemctl restart docker
     fi
 }
