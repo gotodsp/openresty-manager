@@ -40,6 +40,24 @@ else
     abort "无法检测操作系统"
 fi
 
+normalize_version() {
+    local version=$1
+    version=$(echo "$version" | tr -d '[:alpha:]_-' | sed 's/\.\+/./g')
+    IFS='.' read -ra segments <<< "$version"
+
+    while [ ${#segments[@]} -lt 4 ]; do
+        segments+=(0)
+    done
+
+    printf "%04d%04d%04d%04d" \
+        "${segments[0]}" \
+        "${segments[1]}" \
+        "${segments[2]}" \
+        "${segments[3]}"
+}
+
+NEW_OS_VERSION=$(normalize_version "$OS_VERSION")
+
 check_ports() {
     if [ $(command -v ss) ]; then
         for port in 80 443 777 34567; do
@@ -51,12 +69,47 @@ check_ports() {
 }
 
 install_openresty_manager() {
-    mkdir -p /etc/docker
-    echo '{"registry-mirrors":["https://docker.1ms.run"]}' > /etc/docker/daemon.json
     curl https://om.uusec.com/docker_cn.tgz -o /tmp/docker.tgz
     mkdir -p /opt && tar -zxf /tmp/docker.tgz -C /opt/
     if [ $? -ne "0" ]; then
         abort "OpenResty Manager安装失败"
+    fi
+
+    if [ ! $(command -v docker) ]; then
+        warning "未检测到 Docker 引擎，我们将自动为您安装。过程较慢，请耐心等待 ..."
+        case $OS_NAME in
+            alinux)
+                wget -O /etc/yum.repos.d/docker-ce.repo http://mirrors.cloud.aliyuncs.com/docker-ce/linux/centos/docker-ce.repo
+                sed -i 's|https://mirrors.aliyun.com|http://mirrors.cloud.aliyuncs.com|g' /etc/yum.repos.d/docker-ce.repo
+                local v3=$(normalize_version "3")
+                if [ "$NEW_OS_VERSION" -ge "$v3" ]; then
+                    dnf -y install dnf-plugin-releasever-adapter --repo alinux3-plus
+                    dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                else
+                    yum -y install yum-plugin-releasever-adapter --disablerepo=* --enablerepo=plus
+                    yum -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                fi
+                ;;
+            tlinux)
+                local v4=$(normalize_version "4")
+                if [ "$NEW_OS_VERSION" -ge "$v4" ]; then
+                    yum install docker -y
+                else
+                    dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --nobest
+                fi
+                ;;
+            *)
+
+                sh /opt/om/install-docker.sh --mirror Aliyun
+                if [ $? -ne "0" ]; then
+                    abort "Docker 引擎自动安装失败，请在执行此脚本之前手动安装它。"
+                fi
+                ;;
+        esac
+        
+        mkdir -p /etc/docker
+        echo '{"registry-mirrors":["https://docker.1ms.run"]}' > /etc/docker/daemon.json
+        systemctl enable docker && systemctl daemon-reload && systemctl restart docker
     fi
 }
 

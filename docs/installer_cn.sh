@@ -202,11 +202,36 @@ install_openresty() {
 install_docker() {
     if [ ! $(command -v docker) ]; then
         warning "未检测到 Docker 引擎，我们将自动为您安装。过程较慢，请耐心等待 ..."
-        curl https://om.uusec.com/install-docker.sh -o /tmp/install-docker.sh
-        sh /tmp/install-docker.sh --mirror Aliyun
-        if [ $? -ne "0" ]; then
-            abort "Docker 引擎自动安装失败，请在执行此脚本之前手动安装它。"
-        fi
+        case $OS_NAME in
+            alinux)
+                wget -O /etc/yum.repos.d/docker-ce.repo http://mirrors.cloud.aliyuncs.com/docker-ce/linux/centos/docker-ce.repo
+                sed -i 's|https://mirrors.aliyun.com|http://mirrors.cloud.aliyuncs.com|g' /etc/yum.repos.d/docker-ce.repo
+                local v3=$(normalize_version "3")
+                if [ "$NEW_OS_VERSION" -ge "$v3" ]; then
+                    dnf -y install dnf-plugin-releasever-adapter --repo alinux3-plus
+                    dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                else
+                    yum -y install yum-plugin-releasever-adapter --disablerepo=* --enablerepo=plus
+                    yum -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+                fi
+                ;;
+            tlinux)
+                local v4=$(normalize_version "4")
+                if [ "$NEW_OS_VERSION" -ge "$v4" ]; then
+                    yum install docker -y
+                else
+                    dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --nobest
+                fi
+                ;;
+            *)
+                curl https://om.uusec.com/install-docker.sh -o /tmp/install-docker.sh
+                sh /tmp/install-docker.sh --mirror Aliyun
+                if [ $? -ne "0" ]; then
+                    abort "Docker 引擎自动安装失败，请在执行此脚本之前手动安装它。"
+                fi
+                ;;
+        esac
+        
         mkdir -p /etc/docker
         echo '{"registry-mirrors":["https://docker.1ms.run"]}' > /etc/docker/daemon.json
         systemctl enable docker && systemctl daemon-reload && systemctl restart docker

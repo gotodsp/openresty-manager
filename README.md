@@ -73,8 +73,6 @@ OpenResty Manager is not only easy to use but also easy to install, supports bot
 
 &nbsp;&nbsp;<a href="https://www.dkdun.cn/aff/RXBQPEUU" target="_blank"><img height="36" src="https://raw.githubusercontent.com/Safe3/openresty-manager/refs/heads/main/docs/dkdun.png" alt="林枫云"></a>
 
-&nbsp;&nbsp;<a href="https://jinglisafe.com/" target="_blank"><img height="36" src="https://jinglisafe.com/themes/web/www/upload/local683af5bd91db5.png" alt="景理"></a>
-
 - ### Host Version
 
 > :biohazard: ***If the server is using cloud services, remember to open the TCP port 80, 443 and 34567 required for OpenResty Manager***
