@@ -69,7 +69,7 @@ check_ports() {
 }
 
 install_openresty_manager() {
-    curl https://om.uusec.com/docker_cn.tgz -o /tmp/docker.tgz
+    curl https://om.uusec.com/cn/docker.tgz -o /tmp/docker.tgz
     mkdir -p /opt && tar -zxf /tmp/docker.tgz -C /opt/
     if [ $? -ne "0" ]; then
         abort "OpenResty Manager安装失败"
