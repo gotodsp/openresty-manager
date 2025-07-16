@@ -64,23 +64,23 @@ install_dependencies() {
             apt-get update
             apt-get -y install software-properties-common
             add-apt-repository ppa:maxmind/ppa
-            apt-get -y install --no-install-recommends wget gnupg ca-certificates lsb-release libmaxminddb0 curl tar
+            apt-get -y install --no-install-recommends wget gnupg ca-certificates lsb-release libmaxminddb0 curl tar logrotate
             ;;
         debian)
             apt-get update
-            apt-get -y install --no-install-recommends wget gnupg ca-certificates libmaxminddb0 curl tar
+            apt-get -y install --no-install-recommends wget gnupg ca-certificates libmaxminddb0 curl tar logrotate
             ;;
         centos|rocky|oracle|rhel|amazon|alinux|tlinux|mariner)
-            yum install -y yum-utils wget libmaxminddb curl tar
+            yum install -y yum-utils wget libmaxminddb curl tar logrotate
             ;;
         fedora)
-            dnf install -y dnf-plugins-core wget libmaxminddb curl tar
+            dnf install -y dnf-plugins-core wget libmaxminddb curl tar logrotate
             ;;
         sles|opensuse)
-            zypper install -y wget libmaxminddb curl tar
+            zypper install -y wget libmaxminddb curl tar logrotate
             ;;
         alpine)
-            apk add wget libmaxminddb curl tar
+            apk add wget libmaxminddb curl tar logrotate
             ;;
         *)
             abort "不支持的Linux发行版: $OS_NAME"
