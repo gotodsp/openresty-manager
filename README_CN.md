@@ -113,7 +113,7 @@ sudo bash -c "$(curl -fsSL https://om.uusec.com/uninstaller.sh)"
 ```
 
 
-## :1st_place_medal: 产品
+## :1st_place_medal: 产品列表
 
 来自我们的其它伟大产品：
 
