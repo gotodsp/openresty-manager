@@ -113,6 +113,13 @@ sudo bash -c "$(curl -fsSL https://om.uusec.com/uninstaller.sh)"
 ```
 
 
+## :1st_place_medal: 产品
+
+来自我们的其它伟大产品：
+
+[南墙](https://github.com/Safe3/uusec-waf) - 一款工业级免费、高性能、高扩展，支持AI和语义引擎的Web应用和API安全防护产品。
+
+[萤火虫](https://github.com/Safe3/firefly) -  最简单易用的 WireGuard VPN 服务器。
 
 
 ## :gift_heart: 感谢

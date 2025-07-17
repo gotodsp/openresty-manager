@@ -79,6 +79,10 @@ OpenResty Manager is not only easy to use but also easy to install, supports bot
 
 One click installation: Automatic installation can be completed in minutes.
 
+
+> [!WARNING]
+> 中国用户请访问 [中文官网](https://om.uusec.com/cn/) 安装中文版，以下步骤安装国际版可能会导致无法使用！
+
 ```bash
 sudo bash -c "$(curl -fsSL https://om.uusec.com/installer.sh)"
 ```
@@ -86,6 +90,10 @@ sudo bash -c "$(curl -fsSL https://om.uusec.com/installer.sh)"
 - ### Docker Version
 
 One click installation: Automatic installation can be completed in minutes.
+
+
+> [!WARNING]
+> 中国用户请访问 [中文官网](https://waf.uusec.com/cn/) 安装中文版，以下步骤安装国际版可能会导致无法使用！
 
 ```bash
 sudo bash -c "$(curl -fsSL https://om.uusec.com/docker_installer.sh)"
@@ -110,6 +118,16 @@ One click uninstallation: Automatic uninstallation can be completed in minutes.
 sudo bash -c "$(curl -fsSL https://om.uusec.com/uninstaller.sh)"
 ```
 
+
+## :1st_place_medal: Products
+
+Other great products from us:
+
+[UUSEC WAF](https://github.com/Safe3/uusec-waf) - An high-performance, AI and semantic technology Web Application Firewall and API Security Gateway (WAAP).
+
+[Firefly](https://github.com/Safe3/firefly) -  The easiest using and high performance WireGuard VPN server.
+
+
 ## :gift_heart: Credits
 
 Thanks to all the amazing [community contributors for sending PRs](https://github.com/Safe3/openresty-manager/graphs/contributors) and keeping this project updated. ❤️
@@ -122,9 +140,11 @@ If you have an idea or some kind of improvement, you are welcome to contribute a
 </a>
 </p>
 
+
 ## :kissing_heart: Contact
 
-If you want to support more features such as Web Application Firewall, please visits [UUSEC WAF](https://uuwaf.uusec.com/).
+If you want to support more features , please send mail to support[at]uusec.com .
+
 
 ## :key: License
 
