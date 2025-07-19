@@ -93,7 +93,7 @@ One click installation: Automatic installation can be completed in minutes.
 
 
 > [!WARNING]
-> 中国用户请访问 [中文官网](https://waf.uusec.com/cn/) 安装中文版，以下步骤安装国际版可能会导致无法使用！
+> 中国用户请访问 [中文官网](https://om.uusec.com/cn/) 安装中文版，以下步骤安装国际版可能会导致无法使用！
 
 ```bash
 sudo bash -c "$(curl -fsSL https://om.uusec.com/docker_installer.sh)"
