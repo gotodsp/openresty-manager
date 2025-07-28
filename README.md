@@ -103,7 +103,7 @@ Subsequently, `bash /opt/om/om.sh` is used to manage the OpenResty Manager conta
 
 - ### Quick Start
 
-1. Login to the management: Access http://ip:34567 , the default username is "admin", and the default password is "#Passw0rd".
+1. Login to the management: Access https://your-ip:34567 , the default username is "admin", and the default password is "#Passw0rd".
 2. Add SSL certificates: Go to the certificates management menu, apply for a Let's Encrypt free SSL certificate or upload an existing certificate.
 3. Add apps: Go to the app store menu and install apps such as WordPress with just one click.
 4. Add upstreams: Go to the upstream management menu and add upstream load balancing for installed applications such as WordPress.
