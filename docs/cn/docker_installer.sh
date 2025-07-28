@@ -108,7 +108,7 @@ install_openresty_manager() {
         esac
         
         mkdir -p /etc/docker
-        echo '{"registry-mirrors":["https://docker.1ms.run"]}' > /etc/docker/daemon.json
+        echo '{"registry-mirrors":["https://docker.1ms.run","https://docker.1panel.live","https://doublezonline.cloud/"]}' > /etc/docker/daemon.json
         systemctl enable docker && systemctl daemon-reload && systemctl restart docker
     fi
 }
