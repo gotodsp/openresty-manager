@@ -53,7 +53,7 @@ The most simple, powerful and beautiful host management panel, an open source al
 
 :purple_circle: Free SSL support both for HTTP-01 and DNS-01 challenge or provide your own SSL certificates
 
-:yellow_circle: Easily create reverse proxy for your websites without knowing anything about OpenResty
+:yellow_circle: Powerful security features, such as access control, denial-of-service attack protection, identity authentication.
 
 :red_circle: Simplify host management, include UI frendly terminal and file manager for users
 
