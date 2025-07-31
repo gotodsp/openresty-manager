@@ -121,8 +121,6 @@ sudo bash -c "$(curl -fsSL https://om.uusec.com/uninstaller.sh)"
 
 [森罗万象](https://github.com/Safe3/CVS) - 强大的网络空间测绘、资产管理、漏洞扫描等全生命漏洞周期的综合攻击面管理平台，化繁为简，以一御百。
 
-[萤火虫](https://github.com/Safe3/firefly) -  最简单易用的 WireGuard VPN 服务器。
-
 
 ## :gift_heart: 感谢
 
