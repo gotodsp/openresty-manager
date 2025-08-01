@@ -125,7 +125,6 @@ Other great products from us:
 
 [UUSEC WAF](https://github.com/Safe3/uusec-waf) - An high-performance, AI and semantic technology Web Application Firewall and API Security Gateway (WAAP).
 
-[Firefly](https://github.com/Safe3/firefly) -  The easiest using and high performance WireGuard VPN server.
 
 
 ## :gift_heart: Credits
