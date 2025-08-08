@@ -123,7 +123,7 @@ sudo bash -c "$(curl -fsSL https://om.uusec.com/uninstaller.sh)"
 
 Other great products from us:
 
-[UUSEC WAF](https://github.com/Safe3/uusec-waf) - An high-performance, AI and semantic technology Web Application Firewall and API Security Gateway (WAAP).
+[UUSEC WAF](https://github.com/Safe3/uusec-waf) - AI and semantic technology Web Application Firewall and API Security Gateway (WAAP).
 
 
 
