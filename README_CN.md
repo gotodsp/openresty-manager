@@ -94,7 +94,7 @@ sudo bash -c "$(curl -fsSL https://om.uusec.com/cn/docker_installer.sh)"
 
 - ### 快速入门
 
-1. 登录管理：访问https://your-ip:34567，默认用户名为“admin”，默认密码为“#Passw0rd”。
+1. 登录管理：访问 https://your-ip:34567 ，默认用户名为“admin”，默认密码为“#Passw0rd”。
 2. 添加SSL证书：转到证书管理菜单，申请Let's Encrypt免费SSL证书或上传现有证书。
 3. 添加应用：转到应用商店菜单，一键安装应用，如WordPress等。
 4. 添加上游：转到上游管理菜单，为安装的应用如WordPress站点添加上游负载均衡。
